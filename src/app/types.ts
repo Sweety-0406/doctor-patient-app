@@ -19,4 +19,38 @@ export type Appointment = {
 };
 
 
+export type Doctor = {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+  specialization: string;
+  qualification: string;
+  availableToday: boolean;
+  image: string;
+  description: string;
+  specialties: string[];
+  timing: string;
+  earliestAvailable: string; // ISO format date string
+  available: string[];
+  user: "doctor" | string;
+};
+
+export type DoctoSignup = {
+  name: string;
+  email: string;
+  password: string;
+  specialization: string;
+  user: string
+}
+
+export type PatientSignup = {
+  name: string;
+  email: string;
+  password: string;
+  location: string;
+  user: string
+}
+
+
 

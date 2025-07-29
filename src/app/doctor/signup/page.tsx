@@ -8,6 +8,13 @@ import Image from "next/image";
 import { LuStethoscope } from "react-icons/lu";
 import { doctorSignUp } from "@/lib/api";
 
+type dataType = {
+  name: string;
+  email: string;
+  password: string;
+  specialization: string;
+}
+
 export default function DoctorSignupPage() {
   const router = useRouter();
 
@@ -19,7 +26,7 @@ export default function DoctorSignupPage() {
     resolver: yupResolver(doctorSignupSchema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: dataType) => {
     const payload = {
       ...data,
       user: "doctor",

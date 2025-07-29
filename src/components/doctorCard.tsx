@@ -4,6 +4,16 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiHeart } from "react-icons/fi";
 
+type dataType = {
+  id: string;
+  name: string;
+  specialization: string;
+  availableToday: boolean;
+  image: string;
+  description: string;
+  timing: string;
+}
+
 export default function DoctorCard({
   id,
   name,
@@ -12,10 +22,10 @@ export default function DoctorCard({
   description,
   image,
   availableToday,
-}: any) {
+}: dataType) {
   const [isFav, setIsFav] = useState(false)
   const router = useRouter()
-  const onClickHandler=(e:any)=>{
+  const onClickHandler=(e: React.MouseEvent<HTMLDivElement | SVGElement>)=>{
     e.stopPropagation();
     setIsFav((val)=>!val)
   }

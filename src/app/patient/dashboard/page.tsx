@@ -1,12 +1,9 @@
 'use client';
 
-// import { useDoctorAuth } from '@/context/authContext';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import { Appointment } from '@/app/types';
+import {  Doctor } from '@/app/types';
 import { usePatientAuth } from '@/context/patientAuthContext';
 import Footer from '@/components/footer';
 import DoctorCard from '@/components/doctorCard';
@@ -18,7 +15,7 @@ import { getDoctors } from '@/lib/api';
 export default function PatientDashboard() {
     const { patient, loading } = usePatientAuth();
     const router = useRouter();
-    const [doctors, setDoctors] = useState<any[]>([]);
+    const [doctors, setDoctors] = useState<Doctor[]>([]);
 
     useEffect(() => {
       if (!loading && patient) {

@@ -1,7 +1,7 @@
 
-import { Appointment } from "@/app/types";
+import { Appointment, DoctoSignup, PatientSignup } from "@/app/types";
 
-export const API_BASE = "http://localhost:3001";
+export const API_BASE = process.env.NEXT_PUBLIC_BASE_API;
 
 
 
@@ -15,7 +15,7 @@ export const getDoctorById = (id: number) =>
 export const getDoctorByEmail = (email: string) =>
   fetch(`${API_BASE}/doctors?email=${email}`);
 
-export const doctorSignUp = (payload: any) =>
+export const doctorSignUp = (payload: DoctoSignup) =>
   fetch(`${API_BASE}/doctors`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -63,7 +63,7 @@ export const getMyPatientByDoctor = (id: string) =>
 export const getPatientByEmail = (email: string) =>
   fetch(`${API_BASE}/patients?email=${email}`);
 
-export const patientSignUp = (payload: any) =>
+export const patientSignUp = (payload: PatientSignup) =>
   fetch(`${API_BASE}/patients`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

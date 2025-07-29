@@ -98,7 +98,7 @@ export default function PatientLoginPage() {
           </form>
           <div>
             <p className="text-center pt-10 text-sm text-gray-500 mt-6">
-                Don't have an account ?
+                Don&apos;t have an account ?
                 <a href="/patient/signup" className="text-teal-500 font-medium">
                 Sign Up
                 </a>

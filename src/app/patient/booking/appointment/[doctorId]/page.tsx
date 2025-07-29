@@ -2,10 +2,11 @@
 import { useParams, useRouter } from "next/navigation";
 import { getDoctorById, postAppointment } from "@/lib/api";
 import { useEffect, useState } from "react";
-import { FaArrowLeft, FaCalendarAlt } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 import { usePatientAuth } from "@/context/patientAuthContext";
+import { Doctor } from "@/app/types";
 
 const timeSlots = [
   "09:30 AM - 09:45 AM", "10:00 AM - 10:15 AM",
@@ -13,11 +14,11 @@ const timeSlots = [
   "12:00 PM - 12:15 PM", "01:00 PM - 01:15 PM",
 ];
 
-export default function BookingAppointmentPage({ params }: { params: { doctorId: string } }) {
+export default function BookingAppointmentPage() {
   const { patient, loading } = usePatientAuth();
   const { doctorId } = useParams(); 
   const router = useRouter()
-  const [doc, setDoc] = useState<any>(null);
+  const [doc, setDoc] = useState<Doctor | null>(null);
   
   useEffect(() => {
       if (!doctorId) return;
@@ -52,12 +53,13 @@ export default function BookingAppointmentPage({ params }: { params: { doctorId:
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
+        if(!doc) return null
         const payload = {
             doctorId: doctorId as string,
             patientId: String(patient?.id),
             doctorImage: doc.image,
             doctorName: doc.name,
-            status: "pending" as "pending", // cast to valid union value
+            status: "pending" as const, 
             patient: formData.patient,
             gender: formData.gender as "Male" | "Female" | "Other",
             age: formData.age.toString(),

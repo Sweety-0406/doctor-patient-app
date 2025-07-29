@@ -5,11 +5,12 @@ import { useEffect, useState } from "react";
 import { IoIosArrowDropright } from "react-icons/io";
 import { FaArrowLeft, FaCalendarAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
+import { Doctor } from "@/app/types";
 
-export default function BookingPage({ params }: { params: { id: string } }) {
+export default function BookingPage() {
   const { id } = useParams(); 
   const router = useRouter()
-  const [doc, setDoc] = useState<any>(null);
+  const [doc, setDoc] = useState<Doctor | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -53,7 +54,7 @@ export default function BookingPage({ params }: { params: { id: string } }) {
           <div>
             <h3 className="font-semibold text-base mb-2">Speciality</h3>
             <div className="flex flex-wrap gap-2">
-              {doc.specialties.map((speciality:any) => (
+              {doc.specialties.map((speciality:string) => (
                 <span
                   key={speciality}
                   className="px-3 py-1 text-sm border border-teal-500 font-semibold rounded-full"
@@ -75,7 +76,7 @@ export default function BookingPage({ params }: { params: { id: string } }) {
           {/* Availability */}
           <div>
             <h3 className="font-semibold text-base mb-1">Availability For Consulting</h3>
-            {doc.available.map((data:any, index:number)=>(
+            {doc.available.map((data:string, index:number)=>(
               <p key={index} className="text-gray-600 text-sm">
                 {data}
               </p>
