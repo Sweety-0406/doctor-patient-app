@@ -7,6 +7,7 @@ import { patientSignupSchema } from "@/lib/schemaValidation";
 import Image from "next/image";
 import { LuStethoscope } from "react-icons/lu";
 import { patientSignUp } from "@/lib/api";
+import toast from "react-hot-toast";
 
 type dataType = {
     name: string;
@@ -33,7 +34,7 @@ export default function PatientSignupPage() {
     };
     const res = await patientSignUp(payload);
     if (res.ok) {
-      alert("Signup successful");
+      toast.success("Signup successful");
       router.push("/patient/login");
     }
   };

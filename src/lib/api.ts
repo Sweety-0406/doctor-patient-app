@@ -1,7 +1,7 @@
 
 import { Appointment, DoctoSignup, PatientSignup } from "@/app/types";
 
-export const API_BASE = process.env.NEXT_PUBLIC_BASE_API;
+export const API_BASE =process.env.NEXT_PUBLIC_BASE_API
 
 
 

@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { LuStethoscope } from "react-icons/lu";
 import { usePatientAuth } from "@/context/patientAuthContext";
 import { patientLogin } from "@/lib/api";
+import toast from "react-hot-toast";
 
 type LoginForm = {
   email: string;
@@ -39,7 +40,7 @@ export default function PatientLoginPage() {
       login(patient);
       router.push("/patient/dashboard");
     } else {
-      alert("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   };
 

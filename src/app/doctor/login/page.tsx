@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LuStethoscope } from "react-icons/lu";
 import { doctorLogin } from "@/lib/api";
+import toast from "react-hot-toast";
 
 type LoginForm = {
   email: string;
@@ -39,7 +40,7 @@ export default function DoctorLoginPage() {
       login(doctor);
       router.push("/doctor/dashboard");
     } else {
-      alert("Invalid credentials");
+      toast.error("Invalid credentials");
     }
   };
 

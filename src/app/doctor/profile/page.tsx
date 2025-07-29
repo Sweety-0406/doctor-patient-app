@@ -3,6 +3,7 @@ import { useDoctorAuth } from "@/context/authContext";
 import { updateDoctorProfile } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 export default function ProfilePage() {
   const { doctor, loading } = useDoctorAuth();
@@ -21,7 +22,7 @@ export default function ProfilePage() {
     const res = await updateDoctorProfile(doctor?.id, name, specialization);
 
     if (res.ok) {
-      alert("Profile updated!");
+      toast.success("Profile updated!");
     }
   };
 
