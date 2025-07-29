@@ -1,0 +1,236 @@
+{
+  "doctors": [
+    {
+      "id": "1",
+      "email": "doc@example.com",
+      "password": "123456",
+      "name": "Dr. Smith",
+      "specialization": "Orthopedic Surgeon",
+      "qualification": "MBBS, MS (Ortho)",
+      "availableToday": true,
+      "image": "/images/download.jpg",
+      "description": "Specialist in bone and joint surgeries.",
+      "specialties": [
+        "Fractures",
+        "Arthroscopy",
+        "Joint Replacement"
+      ],
+      "timing": "09:30 AM – 07:00 PM",
+      "earliestAvailable": "2023-10-13T10:30:00",
+      "available": [
+        "Monday to Friday | 9Am to 12Pm",
+        "Sturday | 1Pm to 4Pm"
+      ],
+      "user": "doctor"
+    },
+    {
+      "id": "680",
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "123456",
+      "specialization": "Pediatrician",
+      "qualification": "MBBS, DCH",
+      "availableToday": false,
+      "image": "/images/download.jpg",
+      "description": "Treating infants and children with utmost care.",
+      "specialties": [
+        "Vaccination",
+        "Child Growth",
+        "Nutritional Counseling"
+      ],
+      "timing": "09:30 AM – 07:00 PM",
+      "earliestAvailable": "2023-10-11T14:00:00",
+      "available": [
+        "Monday to Friday | 10Am to 1Pm",
+        "Sturday | 2Pm to 5Pm"
+      ],
+      "user": "doctor"
+    },
+    {
+      "id": "1a39",
+      "name": "sweety",
+      "email": "sweety@gmail.com",
+      "password": "234567",
+      "specialization": "Cardiologist",
+      "qualification": "MBBS, DM (Cardiology)",
+      "availableToday": true,
+      "image": "/images/download.jpg",
+      "description": "12+ years of experience in heart disease treatment.",
+      "specialties": [
+        "Angioplasty",
+        "Heart Checkup",
+        "Hypertension"
+      ],
+      "timing": "09:30 AM – 07:00 PM",
+      "earliestAvailable": "2023-10-10T08:00:00",
+      "available": [
+        "Monday to Friday | 8Am to 1Pm",
+        "Sturday | 2Pm to 4Pm"
+      ],
+      "user": "doctor"
+    },
+    {
+      "id": "d09c",
+      "name": "pre",
+      "email": "pre@gmail.com",
+      "password": "123456",
+      "specialization": "Gynecologist",
+      "qualification": "MBBS, MD (Gynecology)",
+      "availableToday": true,
+      "image": "/images/download.jpg",
+      "description": "Specialist in women's health and pregnancy care.",
+      "specialties": [
+        "Pregnancy",
+        "Menstrual Issues",
+        "PCOD"
+      ],
+      "timing": "09:30 AM – 07:00 PM",
+      "earliestAvailable": "2023-10-14T15:00:00",
+      "available": [
+        "Monday to Friday | 10Am to 1Pm",
+        "Sturday | 2Pm to 5Pm"
+      ],
+      "user": "doctor"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "1",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download.jpg",
+      "doctorName": "test",
+      "patient": "Sara Soft",
+      "gender": "Female",
+      "age": "25",
+      "diagnosis": "Cancer",
+      "phone": "(280) 548-0124",
+      "address": "Nampa, Tennessee",
+      "blood": "O+",
+      "triage": "Non Urgent",
+      "date": "2025-07-28",
+      "time": "10:00 AM",
+      "status": "rejected",
+      "payment": "Not paid"
+    },
+    {
+      "id": "c66a",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download.jpg",
+      "patient": "sweety",
+      "gender": "Female",
+      "age": "42",
+      "diagnosis": "Heart attack",
+      "phone": "(124) 864-1794",
+      "address": "Nampa, Tennessee",
+      "blood": "AB+",
+      "triage": "Emergency",
+      "date": "2025-07-28",
+      "time": "11:00 AM",
+      "status": "approved",
+      "payment": "Paid"
+    },
+    {
+      "id": "2",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download.jpg",
+      "doctorName": "test",
+      "patient": "Sara Soft",
+      "gender": "Female",
+      "age": "25",
+      "diagnosis": "Cancer",
+      "phone": "(280) 548-0124",
+      "address": "Nampa, Tennessee",
+      "blood": "O+",
+      "triage": "Non Urgent",
+      "date": "2025-07-28",
+      "time": "10:00 AM",
+      "status": "rejected",
+      "payment": "Not paid"
+    },
+    {
+      "id": "c6",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download.jpg",
+      "patient": "sweety",
+      "gender": "Female",
+      "age": "42",
+      "diagnosis": "Heart attack",
+      "phone": "(124) 864-1794",
+      "address": "Nampa, Tennessee",
+      "blood": "AB+",
+      "triage": "Emergency",
+      "date": "2025-07-28",
+      "time": "11:00 AM",
+      "status": "pending",
+      "payment": "Not paid"
+    },
+    {
+      "id": "1faffd4a-2034-4e22-8b35-9cfeb5786d64",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download.jpg",
+      "doctorName": "test",
+      "status": "pending",
+      "patient": "riya",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "head ache",
+      "phone": "9876543690",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "A+",
+      "triage": "Non Urgent",
+      "date": "2025-07-29",
+      "time": "09:30 AM - 09:45 AM",
+      "payment": "Paid"
+    },
+    {
+      "id": "7273fee6-1fe9-4b79-8841-27997f387ab6",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download.jpg",
+      "doctorName": "test",
+      "status": "pending",
+      "patient": "riya",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "head ache",
+      "phone": "9876543690",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "A-",
+      "triage": "Non Urgent",
+      "date": "2025-07-30",
+      "time": "10:30 AM - 10:45 AM",
+      "payment": "Paid"
+    }
+  ],
+  "patients": [
+    {
+      "id": "c6a",
+      "password": "123456",
+      "email": "test@gmail.com",
+      "name": "test",
+      "location": "Pune",
+      "user": "patient"
+    },
+    {
+      "id": "c66a",
+      "password": "123456",
+      "email": "sweety@gmail.com",
+      "name": "sweety",
+      "location": "kolkata",
+      "user": "patient"
+    },
+    {
+      "id": "0121",
+      "name": "riya",
+      "email": "riya@gmail.com",
+      "password": "123456",
+      "location": "delhi",
+      "user": "patient"
+    }
+  ]
+}

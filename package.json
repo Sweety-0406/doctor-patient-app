@@ -1,0 +1,36 @@
+{
+  "name": "project-2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "server": "json-server --watch db.json --port 3001"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.0",
+    "next": "15.4.4",
+    "react": "19.1.0",
+    "react-calendar": "^6.0.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.61.1",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
+    "yup": "^1.6.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/yup": "^0.32.0",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.4",
+    "json-server": "^1.0.0-beta.3",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
