@@ -45,7 +45,7 @@ export default function PatientLoginPage() {
   };
 
   return (
-    <div className="flex h-screen bg-teal-100 py-[5%] px-20">
+    <div className="flex h-screen bg-teal-500 py-[5%]  px-[10%] xl:px-[20%]">
       {/* Left Illustration */}
       <div className="w-1/2 hidden bg-gray-50 rounded-l-lg  md:flex items-center   justify-center ">
         <Image

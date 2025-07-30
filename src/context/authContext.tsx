@@ -1,14 +1,7 @@
 
 "use client";
+import { Doctor } from "@/app/types";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-
-type Doctor = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  specialization: string;
-};
 
 type AuthContextType = {
   doctor: Doctor | null;
@@ -21,7 +14,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const DoctorAuthProvider = ({ children }: { children: ReactNode }) => {
   const [doctor, setDoctor] = useState<Doctor | null>(null);
-  const [loading, setLoading] = useState(true); // ✅ Initialize loading
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const storedDoctor = localStorage.getItem("doctor");
@@ -34,7 +27,7 @@ export const DoctorAuthProvider = ({ children }: { children: ReactNode }) => {
         console.error("Failed to parse doctor from localStorage:", error);
       }
     }
-    setLoading(false); // ✅ Done loading after checking localStorage
+    setLoading(false);
   }, []);
 
   const login = (doctor: Doctor) => {
@@ -54,7 +47,7 @@ export const DoctorAuthProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AuthContext.Provider value={{ doctor, login, logout, loading }}>
-      {!loading && children} {/* ✅ Only render children after loading */}
+      {!loading && children} 
     </AuthContext.Provider>
   );
 };

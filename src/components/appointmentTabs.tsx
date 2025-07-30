@@ -1,11 +1,11 @@
 "use client"
 type Props = {
-  activeTab: "pending" | "approved" | "rejected";
-  setActiveTab: (tab: "pending" | "approved" | "rejected") => void;
+  activeTab: "pending" | "approved" | "rejected" | "completed" | "cancelled";
+  setActiveTab: (tab: "pending" | "approved" | "rejected" | "completed" |"cancelled") => void;
 };
 
 export default function AppointmentTabs({ activeTab, setActiveTab }: Props) {
-  const tabs = ["Pending", "Approved", "Rejected"];
+  const tabs = ["Pending", "Approved", "Rejected", "completed", "cancelled"];
 
   return (
     <div className="flex justify-around border-b">
@@ -18,7 +18,7 @@ export default function AppointmentTabs({ activeTab, setActiveTab }: Props) {
             key={tab}
             onClick={() => setActiveTab(key)}
             className={`py-2 px-4 cursor-pointer text-sm font-medium ${
-              isActive ? "border-b-2 border-cyan-500 text-cyan-600" : "text-gray-500"
+              isActive ? "border-b-2 border-teal-500 text-teal-600" : "text-gray-500"
             }`}
           >
             {tab}

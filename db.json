@@ -8,7 +8,7 @@
       "specialization": "Orthopedic Surgeon",
       "qualification": "MBBS, MS (Ortho)",
       "availableToday": true,
-      "image": "/images/download.jpg",
+      "image": "/images/download1.jpg",
       "description": "Specialist in bone and joint surgeries.",
       "specialties": [
         "Fractures",
@@ -21,17 +21,19 @@
         "Monday to Friday | 9Am to 12Pm",
         "Sturday | 1Pm to 4Pm"
       ],
-      "user": "doctor"
+      "user": "doctor",
+      "rating": 4.5,
+      "phone": "9876543210"
     },
     {
       "id": "680",
-      "name": "test",
-      "email": "test@gmail.com",
+      "name": "Dr. Aarti Sharma",
+      "email": "arti02@gmail.com",
       "password": "123456",
       "specialization": "Pediatrician",
       "qualification": "MBBS, DCH",
       "availableToday": false,
-      "image": "/images/download.jpg",
+      "image": "/images/download2.jpg",
       "description": "Treating infants and children with utmost care.",
       "specialties": [
         "Vaccination",
@@ -44,17 +46,19 @@
         "Monday to Friday | 10Am to 1Pm",
         "Sturday | 2Pm to 5Pm"
       ],
-      "user": "doctor"
+      "user": "doctor",
+      "rating": 4.7,
+      "phone": "9876543211"
     },
     {
-      "id": "1a39",
-      "name": "sweety",
-      "email": "sweety@gmail.com",
+      "id": "1239",
+      "name": "Dr. Rajeev Menon",
+      "email": "rajeev@gmail.com",
       "password": "234567",
       "specialization": "Cardiologist",
       "qualification": "MBBS, DM (Cardiology)",
       "availableToday": true,
-      "image": "/images/download.jpg",
+      "image": "/images/download7.jpg",
       "description": "12+ years of experience in heart disease treatment.",
       "specialties": [
         "Angioplasty",
@@ -67,17 +71,19 @@
         "Monday to Friday | 8Am to 1Pm",
         "Sturday | 2Pm to 4Pm"
       ],
-      "user": "doctor"
+      "user": "doctor",
+      "rating": 4.9,
+      "phone": "9876543212"
     },
     {
-      "id": "d09c",
-      "name": "pre",
+      "id": "1099",
+      "name": "Dr. Preeti Sharma",
       "email": "pre@gmail.com",
       "password": "123456",
       "specialization": "Gynecologist",
       "qualification": "MBBS, MD (Gynecology)",
       "availableToday": true,
-      "image": "/images/download.jpg",
+      "image": "/images/download3.jpg",
       "description": "Specialist in women's health and pregnancy care.",
       "specialties": [
         "Pregnancy",
@@ -90,91 +96,165 @@
         "Monday to Friday | 10Am to 1Pm",
         "Sturday | 2Pm to 5Pm"
       ],
-      "user": "doctor"
+      "user": "doctor",
+      "rating": 4.8,
+      "phone": "9876543213"
+    },
+    {
+      "id": "6498",
+      "name": "Dr. Abhimanyu Birla",
+      "email": "abhi@gmail.com",
+      "password": "123456",
+      "specialization": "Neurologist",
+      "qualification": "MBBS, DM (Neuro)",
+      "availableToday": false,
+      "image": "/images/download8.jpg",
+      "description": "Focused on diagnosing and treating neurological disorders.",
+      "specialties": [
+        "Epilepsy",
+        "Stroke",
+        "Dementia"
+      ],
+      "timing": "10:00 AM – 05:00 PM",
+      "earliestAvailable": "2023-10-15T11:00:00",
+      "available": [
+        "Monday to Friday | 10Am to 1Pm",
+        "Sunday | 3Pm to 6Pm"
+      ],
+      "user": "doctor",
+      "rating": 4.3,
+      "phone": "9876543214"
+    },
+    {
+      "id": "7771",
+      "name": "Dr. Kavita Mehra",
+      "email": "kavita@gmail.com",
+      "password": "123456",
+      "specialization": "Dermatologist",
+      "qualification": "MBBS, MD (Skin)",
+      "availableToday": true,
+      "image": "/images/download4.jpg",
+      "description": "Expert in treating skin, hair, and nail issues.",
+      "specialties": [
+        "Acne",
+        "Hair Loss",
+        "Skin Allergy"
+      ],
+      "timing": "11:00 AM – 06:00 PM",
+      "earliestAvailable": "2023-10-16T12:30:00",
+      "available": [
+        "Tuesday to Saturday | 11Am to 2Pm"
+      ],
+      "user": "doctor",
+      "rating": 4.6,
+      "phone": "9876543215"
+    },
+    {
+      "id": "8382",
+      "name": "Dr. Arjun Bhatia",
+      "email": "arjun@gmail.com",
+      "password": "123456",
+      "specialization": "ENT Specialist",
+      "qualification": "MBBS, MS (ENT)",
+      "availableToday": true,
+      "image": "/images/download9.jpg",
+      "description": "Treating ear, nose, and throat disorders efficiently.",
+      "specialties": [
+        "Sinus",
+        "Hearing Loss",
+        "Tonsillitis"
+      ],
+      "timing": "08:00 AM – 03:00 PM",
+      "earliestAvailable": "2023-10-12T09:00:00",
+      "available": [
+        "Monday to Friday | 8Am to 12Pm"
+      ],
+      "user": "doctor",
+      "rating": 4.4,
+      "phone": "9876543216"
+    },
+    {
+      "id": "9942",
+      "name": "Dr. Ritu Verma",
+      "email": "ritu@gmail.com",
+      "password": "123456",
+      "specialization": "Ophthalmologist",
+      "qualification": "MBBS, MS (Ophthalmology)",
+      "availableToday": false,
+      "image": "/images/download5.jpg",
+      "description": "Providing advanced eye care for all ages.",
+      "specialties": [
+        "Cataract",
+        "Glaucoma",
+        "Vision Correction"
+      ],
+      "timing": "10:00 AM – 04:00 PM",
+      "earliestAvailable": "2023-10-18T10:30:00",
+      "available": [
+        "Monday to Friday | 10Am to 1Pm",
+        "Saturday | 3Pm to 5Pm"
+      ],
+      "user": "doctor",
+      "rating": 4.2,
+      "phone": "9876543217"
+    },
+    {
+      "id": "2002",
+      "name": "Dr. Aman Kapoor",
+      "email": "aman@gmail.com",
+      "password": "123456",
+      "specialization": "General Physician",
+      "qualification": "MBBS",
+      "availableToday": true,
+      "image": "/images/download10.jpg",
+      "description": "Handling daily health concerns with care and precision.",
+      "specialties": [
+        "Cold & Flu",
+        "Fever",
+        "General Checkup"
+      ],
+      "timing": "09:00 AM – 05:00 PM",
+      "earliestAvailable": "2023-10-10T08:30:00",
+      "available": [
+        "Everyday | 9Am to 11Am"
+      ],
+      "user": "doctor",
+      "rating": 4.5,
+      "phone": "9876543218"
+    },
+    {
+      "id": "1055",
+      "name": "Dr. Sneha Patel",
+      "email": "sneha@gmail.com",
+      "password": "123456",
+      "specialization": "Psychiatrist",
+      "qualification": "MBBS, MD (Psychiatry)",
+      "availableToday": true,
+      "image": "/images/download6.jpg",
+      "description": "Helping patients with mental and emotional disorders.",
+      "specialties": [
+        "Depression",
+        "Anxiety",
+        "Therapy"
+      ],
+      "timing": "01:00 PM – 07:00 PM",
+      "earliestAvailable": "2023-10-19T14:00:00",
+      "available": [
+        "Monday to Saturday | 1Pm to 4Pm"
+      ],
+      "user": "doctor",
+      "rating": 4.6,
+      "phone": "9876543219"
     }
   ],
   "appointments": [
     {
-      "id": "1",
-      "doctorId": "680",
-      "patientId": "0121",
-      "doctorImage": "/images/download.jpg",
-      "doctorName": "test",
-      "patient": "Sara Soft",
-      "gender": "Female",
-      "age": "25",
-      "diagnosis": "Cancer",
-      "phone": "(280) 548-0124",
-      "address": "Nampa, Tennessee",
-      "blood": "O+",
-      "triage": "Non Urgent",
-      "date": "2025-07-28",
-      "time": "10:00 AM",
-      "status": "rejected",
-      "payment": "Not paid"
-    },
-    {
-      "id": "c66a",
-      "doctorId": "680",
-      "patientId": "0121",
-      "doctorImage": "/images/download.jpg",
-      "patient": "sweety",
-      "gender": "Female",
-      "age": "42",
-      "diagnosis": "Heart attack",
-      "phone": "(124) 864-1794",
-      "address": "Nampa, Tennessee",
-      "blood": "AB+",
-      "triage": "Emergency",
-      "date": "2025-07-28",
-      "time": "11:00 AM",
-      "status": "approved",
-      "payment": "Paid"
-    },
-    {
-      "id": "2",
-      "doctorId": "680",
-      "patientId": "0121",
-      "doctorImage": "/images/download.jpg",
-      "doctorName": "test",
-      "patient": "Sara Soft",
-      "gender": "Female",
-      "age": "25",
-      "diagnosis": "Cancer",
-      "phone": "(280) 548-0124",
-      "address": "Nampa, Tennessee",
-      "blood": "O+",
-      "triage": "Non Urgent",
-      "date": "2025-07-28",
-      "time": "10:00 AM",
-      "status": "rejected",
-      "payment": "Not paid"
-    },
-    {
-      "id": "c6",
-      "doctorId": "680",
-      "patientId": "0121",
-      "doctorImage": "/images/download.jpg",
-      "patient": "sweety",
-      "gender": "Female",
-      "age": "42",
-      "diagnosis": "Heart attack",
-      "phone": "(124) 864-1794",
-      "address": "Nampa, Tennessee",
-      "blood": "AB+",
-      "triage": "Emergency",
-      "date": "2025-07-28",
-      "time": "11:00 AM",
-      "status": "pending",
-      "payment": "Not paid"
-    },
-    {
       "id": "1faffd4a-2034-4e22-8b35-9cfeb5786d64",
       "doctorId": "680",
       "patientId": "0121",
-      "doctorImage": "/images/download.jpg",
+      "doctorImage": "/images/download2.jpg",
       "doctorName": "test",
-      "status": "pending",
+      "status": "cancelled",
       "patient": "riya",
       "gender": "Female",
       "age": "22",
@@ -191,9 +271,9 @@
       "id": "7273fee6-1fe9-4b79-8841-27997f387ab6",
       "doctorId": "680",
       "patientId": "0121",
-      "doctorImage": "/images/download.jpg",
+      "doctorImage": "/images/download2.jpg",
       "doctorName": "test",
-      "status": "pending",
+      "status": "rejected",
       "patient": "riya",
       "gender": "Female",
       "age": "22",
@@ -205,6 +285,101 @@
       "date": "2025-07-30",
       "time": "10:30 AM - 10:45 AM",
       "payment": "Paid"
+    },
+    {
+      "id": "f1a8100f-df7d-4a07-b894-cd8d9eb12aa2",
+      "doctorId": "1",
+      "patientId": "0121",
+      "doctorImage": "/images/download1.jpg",
+      "doctorName": "Dr. Smith",
+      "status": "completed",
+      "patient": "riya shah",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "pain in leg bone",
+      "phone": "9876543690",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "A+",
+      "triage": "Non Urgent",
+      "date": "2025-08-01",
+      "time": "10:30 AM - 10:45 AM",
+      "payment": "Paid"
+    },
+    {
+      "id": "63ec9c25-f8b9-4c82-b187-8151cb15ecfa",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download2.jpg",
+      "doctorName": "Dr. Aarti Sharma",
+      "status": "cancelled",
+      "patient": "riya",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "health issues",
+      "phone": "9876543690",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "A+",
+      "triage": "Urgent",
+      "date": "2025-07-24",
+      "time": "10:30 AM - 10:45 AM",
+      "payment": ""
+    },
+    {
+      "id": "b68b877b-ae52-48cc-b5db-595dda2da099",
+      "doctorId": "7771",
+      "patientId": "0121",
+      "doctorImage": "/images/download4.jpg",
+      "doctorName": "Dr. Kavita Mehra",
+      "status": "cancelled",
+      "patient": "riya shah",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "hair loss",
+      "phone": "9876543690",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "A+",
+      "triage": "Urgent",
+      "date": "2025-08-07",
+      "time": "11:30 AM - 11:45 AM",
+      "payment": "Paid"
+    },
+    {
+      "id": "e74a15e9-266b-46cd-aef3-fd820dbf2ad9",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download2.jpg",
+      "doctorName": "Dr. Aarti Sharma",
+      "status": "cancelled",
+      "patient": "riya",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "health issues",
+      "phone": "9876543690",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "A+",
+      "triage": "Non Urgent",
+      "date": "2025-08-01",
+      "time": "09:30 AM - 09:45 AM",
+      "payment": "Not paid"
+    },
+    {
+      "id": "04388733-6fcd-44aa-bcf3-b58f65153ec4",
+      "doctorId": "680",
+      "patientId": "0121",
+      "doctorImage": "/images/download2.jpg",
+      "doctorName": "Dr. Aarti Sharma",
+      "status": "pending",
+      "patient": "riya",
+      "gender": "Female",
+      "age": "22",
+      "diagnosis": "health issues",
+      "phone": "7688297928",
+      "address": "Dhanbad, Jharkhand",
+      "blood": "O+",
+      "triage": "Emergency",
+      "date": "2025-08-02",
+      "time": "11:30 AM - 11:45 AM",
+      "payment": "Not paid"
     }
   ],
   "patients": [
@@ -230,7 +405,11 @@
       "email": "riya@gmail.com",
       "password": "123456",
       "location": "delhi",
-      "user": "patient"
+      "user": "patient",
+      "age": "22",
+      "phone": "9876543690",
+      "bloodGroup": "A+",
+      "gender": "Female"
     }
   ]
 }

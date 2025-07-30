@@ -1,3 +1,5 @@
+export type AppointmentStatus = 'approved' | 'pending' | 'completed' | 'rejected';
+
 export type Appointment = {
   id: string;
   doctorId: string;
@@ -15,7 +17,8 @@ export type Appointment = {
   date: string;  
   time: string; 
   payment: string;
-  status: "approved" | "pending"  | "rejected" | "cancelled" | string;
+  status: "approved" | "pending"  | "rejected" | "cancelled" | "completed" | string;
+
 };
 
 
@@ -31,9 +34,23 @@ export type Doctor = {
   description: string;
   specialties: string[];
   timing: string;
-  earliestAvailable: string; // ISO format date string
+  earliestAvailable: string; 
   available: string[];
   user: "doctor" | string;
+  rating: number,
+  phone:string
+};
+
+export type Patient = {
+  id: string;
+  name: string;
+  email: string;
+  password: string;
+  location: string;
+  age?:string,
+  phone?:string,
+  bloodGroup?:string,
+  gender?:string
 };
 
 export type DoctoSignup = {
@@ -41,7 +58,8 @@ export type DoctoSignup = {
   email: string;
   password: string;
   specialization: string;
-  user: string
+  user: string,
+  
 }
 
 export type PatientSignup = {

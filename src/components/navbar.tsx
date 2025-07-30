@@ -1,7 +1,6 @@
 import { useDoctorAuth } from "@/context/authContext";
 import Link from "next/link"
-import { useParams, usePathname, useRouter } from "next/navigation"
-import { useEffect } from "react";
+import {  usePathname, useRouter } from "next/navigation"
 
 const Navbar = ()=>{
     const pathname = usePathname()
@@ -10,18 +9,17 @@ const Navbar = ()=>{
 
     const logoutHandler = () => {
         logout();
-        router.push("/doctor/login");
+        router.push("/");
     };
     return(
-        <nav className="w-full  h-20 flex justify-between bg-white shadow-md p-6 flex  justify-between">
+        <nav className="w-full z-10 absolute  h-20 flex justify-between bg-white shadow-md p-6 flex  justify-between">
             <div className="flex justify-between ">
                 <Link href="/" className="text-2xl font-bold text-teal-600 ">Doc-Center</Link>
                 <nav className="flex justify-between gap-4 ml-4 mt-1  ">
-                    <Link href="/doctor/dashboard" className={`text-gray-700 hover:text-teal-600 hover:text-lg ${pathname.includes('doctor/dashboard') && "text-teal-600 font-semibold text-lg"}`}>🏠 </Link>
-                    <Link href="/doctor/appointments" className={`text-gray-700 hover:text-teal-600 hover:text-lg ${pathname.includes('doctor/appointments') && "text-teal-600 font-semibold text-lg"}`}>📅 </Link>
-                    <Link href="/doctor/patients" className={`text-gray-700 hover:text-teal-600 hover:text-lg ${pathname.includes('doctor/patients') && "text-teal-600 font-semibold text-lg"}`}>👥 </Link>
-                    {/* <Link href="/doctor/messages" className={`text-gray-700 hover:text-teal-600 hover:text-lg ${pathname.includes('doctor/dashboard') && "text-teal-600 font-semibold text-lg"}`}>💬 </Link> */}
-                    <Link href="/doctor/profile" className={`text-gray-700 hover:text-teal-600 hover:text-lg ${pathname.includes('doctor/profile') && "text-teal-600 font-semibold text-lg"}`}>🩺 </Link>
+                    <Link href="/doctor/dashboard" className={`text-gray-700  hover:text-lg ${pathname.includes('doctor/dashboard') && "rounded bg-teal-100 px-1 font-semibold text-lg"} hover:bg-teal-100 rounded px-1`}>🏠 </Link>
+                    <Link href="/doctor/appointments" className={`text-gray-700  hover:text-lg ${pathname.includes('doctor/appointments') && "rounded bg-teal-100 px-1 font-semibold text-lg"} hover:bg-teal-100 rounded px-1`}>📅 </Link>
+                    <Link href="/doctor/patients" className={`text-gray-700  hover:text-lg ${pathname.includes('doctor/patients') && "rounded bg-teal-100 px-1 font-semibold text-lg"} hover:bg-teal-100 rounded px-1`}>👥 </Link>
+                    <Link href="/doctor/profile" className={`text-gray-700  hover:text-lg ${pathname.includes('doctor/profile') && "rounded bg-teal-100 px-1 font-semibold text-lg"} hover:bg-teal-100 rounded px-1`}>🩺 </Link>
                 </nav>
             </div>
 

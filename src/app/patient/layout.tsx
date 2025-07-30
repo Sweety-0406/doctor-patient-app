@@ -1,7 +1,5 @@
 
 "use client"
-import Navbar from "@/components/navbar";
-import SideBar from "@/components/sidebar";
 import { PatientAuthProvider } from "@/context/patientAuthContext";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";

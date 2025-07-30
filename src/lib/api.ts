@@ -1,6 +1,7 @@
 
 import { Appointment, DoctoSignup, PatientSignup } from "@/app/types";
 
+// export const API_BASE ="http://localhost:3001"
 export const API_BASE =process.env.NEXT_PUBLIC_BASE_API
 
 
@@ -25,21 +26,31 @@ export const doctorSignUp = (payload: DoctoSignup) =>
 export const doctorLogin = (email: string) =>
   fetch(`${API_BASE}/doctors?email=${email}`);
 
-export const updateDoctorProfile = (id: string, name: string, specialization: string) =>
+export const updateDoctorProfile = (id: string, name: string,email: string, specialization: string, qualification: string) =>
   fetch(`${API_BASE}/doctors/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, specialization }),
+    body: JSON.stringify({ name,email, specialization, qualification }),
   });
  
-export const getDoctorAppointments = (doctorId: string) =>
-  fetch(`${API_BASE}/appointments?doctorId=${doctorId}`);
+export const getDoctorAppointments = async (doctorId: string) => {
+  const res = await fetch(`${API_BASE}/appointments?doctorId=${doctorId}`);
+  const data = await res.json();
+  return data.filter((appt: { status: string }) => appt.status !== 'cancelled');
+};
 
 export const updateAppointmentsByDoctor = (id: string, status: string) =>
   fetch(`${API_BASE}/appointments/${id}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ status }),
+  });
+
+export const rescheduleAppointment = (id: string,date:string, time: string) =>
+  fetch(`${API_BASE}/appointments/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({date, time}),
   });
 
 export const doctorChangePassword = (doctorId: string, newPassword: string) =>
@@ -85,6 +96,14 @@ export const patientChangePassword = (patientId: string, newPassword: string) =>
     body: JSON.stringify({ password: newPassword }),
   });
 
+export const updatePatientProfile = (id: string, name: string,email: string, age: string, phone: string, bloodGroup: string, location:string, gender:string) =>
+  fetch(`${API_BASE}/patients/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name,email, age, phone, bloodGroup, location, gender }),
+  });
+   
+
 export const getPatientAppointments = (id: string) =>
   fetch(`${API_BASE}/appointments?patientId=${id}`)
 
@@ -93,4 +112,11 @@ export const postAppointment = (data: Appointment) =>
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
-  });
+});
+
+export const cancellAppointment = (id: string, status: string) =>
+  fetch(`${API_BASE}/appointments/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ status }),
+});

@@ -4,7 +4,14 @@ import { getDoctorById, postAppointment } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import toast from "react-hot-toast";
-
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog"
 import { usePatientAuth } from "@/context/patientAuthContext";
 import { Doctor } from "@/app/types";
 
@@ -29,8 +36,7 @@ export default function BookingAppointmentPage() {
         };
         fetchData();
     }, [doctorId]);
-    
-    const [formData, setFormData] = useState({
+    const initialValue = {
       patient: "",
       gender: "",
       age: "",
@@ -41,8 +47,9 @@ export default function BookingAppointmentPage() {
       triage: "",
       date: "",
       time: "",
-      payment: "",
-    });
+      payment: "Not paid",
+    }
+    const [formData, setFormData] = useState(initialValue);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -78,6 +85,8 @@ export default function BookingAppointmentPage() {
         const res = await postAppointment(payload)
         if(res.ok){
             toast.success("Appointment booked successfully")
+            setFormData(initialValue)
+            router.push("/patient/appointment")
         }else{
             toast.error("Booking Failed Please Try Again")
         }
@@ -110,8 +119,8 @@ export default function BookingAppointmentPage() {
                 </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-4 space-y-4">
-                <h2 className="text-xl font-semibold">Book Appointment</h2>
+            <form onSubmit={handleSubmit} className="lg:mx-[5%] grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-auto p-4 space-y-4">
+            <h2 className="col-span-1 md:col-span-2 lg:col-span-3 text-xl font-semibold">Book Appointment</h2>
 
                 <input type="text" name="patient" placeholder="Patient Name" onChange={handleChange} className="input" required />
                 
@@ -139,7 +148,7 @@ export default function BookingAppointmentPage() {
                 <select
                     name="triage"
                     onChange={handleChange}
-                    className="w-full border border-gray-300 rounded px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500"
+                    className="w-full border border-teal-500 rounded px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-teal-500 focus:border-teal-500"
                     required
                 >
                     <option value="">Select Triage Level</option>
@@ -150,15 +159,15 @@ export default function BookingAppointmentPage() {
 
                 <input type="date" name="date" onChange={handleChange} className="input" required />
 
-                <div>
-                    <label className="block mb-1">Select Time Slot</label>
+                <div className="col-span-1 md:col-span-2 lg:col-span-3">
+                    <label className="block mb-1 text-sm font-semibold">Select Time Slot</label>
                     <div className="grid grid-cols-2 gap-2">
                     {timeSlots.map((slot) => (
                         <button
                         key={slot}
                         type="button"
                         onClick={() => handleTimeSelect(slot)}
-                        className={`border rounded px-2 py-1 text-sm ${formData.time === slot ? 'bg-teal-500 text-white' : ''}`}
+                        className={`border border-teal-500 cursor-pointer hover:bg-teal-500 rounded px-2 py-1 text-sm ${formData.time === slot ? 'bg-teal-500 text-white' : ''}`}
                         >
                         {slot}
                         </button>
@@ -166,13 +175,50 @@ export default function BookingAppointmentPage() {
                     </div>
                 </div>
 
-                <select name="payment" onChange={handleChange} className="input" required>
-                    <option value="">Payment</option>
-                    <option value={"Paid"}>Pay now</option>
-                    <option value={"Not paid"}>Pay later</option>
-                </select>
+                <div className="space-y-2">
+                    <label className="block text-sm font-medium">Payment</label>
+                    <div className="flex gap-4">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <button
+                                type="button"
+                                className="bg-teal-500 cursor-pointer text-white px-4 py-2 rounded hover:bg-teal-600 transition"
+                                >
+                                Pay Now
+                                </button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-md">
+                                <DialogHeader>
+                                <DialogTitle>Confirm Payment</DialogTitle>
+                                </DialogHeader>
+                                <div className="py-4">
+                                <p>Do you want to proceed with online payment?</p>
+                                </div>
+                                <DialogFooter className="flex justify-end gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setFormData({ ...formData, payment: "Paid" })
+                                        toast.success("Pyment successful. You may close now.")
+                                    }}
+                                    className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded hover:bg-green-700"
+                                >
+                                    Confirm Payment
+                                </button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
 
-                <button type="submit" className="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 rounded">
+                        <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, payment: "Not paid" })}
+                        className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+                        >
+                        Pay Later
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" className="col-span-1 md:col-span-2 lg:col-span-3 w-full cursor-pointer bg-teal-500 hover:bg-teal-600 text-white py-2 rounded">
                     Book Appointment
                 </button>
             </form>

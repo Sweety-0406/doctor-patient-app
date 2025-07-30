@@ -35,7 +35,7 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="flex h-screen px[10%] items-center justify-center bg-gray-100">
+    <div className="flex h-screen px[10%] items-center justify-center bg-teal-500">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center  md:text-4xl mb-6">
           {step === "email" ? "Find Your Account" : "Reset Password"}

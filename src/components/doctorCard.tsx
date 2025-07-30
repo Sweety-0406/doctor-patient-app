@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FiHeart } from "react-icons/fi";
+import { FaStar } from "react-icons/fa";
 
 type dataType = {
   id: string;
@@ -12,7 +13,8 @@ type dataType = {
   image: string;
   description: string;
   timing: string;
-}
+  rating?: number;
+};
 
 export default function DoctorCard({
   id,
@@ -22,38 +24,79 @@ export default function DoctorCard({
   description,
   image,
   availableToday,
+  rating = 3.5, 
 }: dataType) {
-  const [isFav, setIsFav] = useState(false)
-  const router = useRouter()
-  const onClickHandler=(e: React.MouseEvent<HTMLDivElement | SVGElement>)=>{
+  const [isFav, setIsFav] = useState(false);
+  const router = useRouter();
+
+  const onClickHandler = (
+    e: React.MouseEvent<HTMLDivElement | SVGElement>
+  ) => {
     e.stopPropagation();
-    setIsFav((val)=>!val)
-  }
+    setIsFav((val) => !val);
+  };
+
   return (
-    <div onClick={()=>router.push(`/patient/booking/${id}`)} className="grid cursor-pointer grid-cols-5 border border-gray-300 sm:grid-cols-2 items-start gap-4 p-4 bg-white rounded-2xl hover:shadow hover:shadow-md transition">
-      <div className="col-span-2 sm:col-span-1">
-        <img 
-          src={image}
-          alt={name}
-          className="object-cover sm:aspect-square rounded-2xl w-full h-full"
-        />
+    <div
+      onClick={() => router.push(`/patient/booking/${id}`)}
+      className="max-w-sm relative my-4 bg-white rounded-3xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition duration-300 hover:scale-105"
+    >
+      <div className="absolute z-15 right-5 top-5">
+        <FiHeart
+            onClick={onClickHandler}
+            className={`text-xl cursor-pointer transition ${
+              isFav ? "text-red-500 fill-red-500" : "text-white"
+            }`}
+          />
       </div>
-      <div className="col-span-3 sm:col-span-1 text-xs md:text-sm">
-        <div className="flex justify-between ">
-          <div className="font-semibold  sm:text-lg">{name}</div>
-          <FiHeart onClick={onClickHandler} className={`cursor-pointer hover:fill-red-500 hover:text-red-500 ${isFav ? "fill-red-500 text-red-500":"fill-transparent text-gray-500 "}`}/>
+      <div className="relative h-28 w-full bg-gradient-to-t from-white to-teal-500">
+        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-20 h-20 rounded-full overflow-hidden border-4 border-white">
+          <Image
+            src={image}
+            alt={name}
+            fill
+            className="object-cover"
+            sizes="80px"
+          />
         </div>
-        <p className=" text-[#46C2DE] font-semibold mb-2">{specialization}</p>
-        <span className={` px-2 py-1 font-semibold  rounded-full ${availableToday ? "bg-[#18AB001C] text-[#18AB00]":"bg-red-100 text-red-500"}`}>
-          {availableToday ? "Available Today":"Not Available Today"}
-        </span>
-        <div className="turncate  text-gray-500 mt-2 mb-4">
-          {description}
-        </div>
-        <span className=" px-2 py-1  font-semibold bg-gray-100 rounded-full">
-          {timing}
-        </span>
       </div>
+
+      {/* Card Content */}
+      <div className="pt-12 pb-6 px-4 text-center">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg text-center w-full font-semibold text-gray-800">{name}</h3>
+          
+        </div>
+        <p className="text-sm text-teal-500 font-medium mb-3">
+          {specialization}
+        </p>
+
+        <div className="flex justify-center gap-4 text-sm text-gray-600 mb-4">
+          <div className="flex items-center gap-1">
+            <FaStar className="text-yellow-400" />
+            {rating.toFixed(1)}
+          </div>
+          <div
+            className={`px-2 py-1 rounded-full text-xs font-medium ${
+              availableToday
+                ? "bg-green-100 text-green-600"
+                : "bg-red-100 text-red-500"
+            }`}
+          >
+            {availableToday ? "Available Today" : "Not Available"}
+          </div>
+        </div>
+
+        <p className="text-gray-500 text-sm mb-4">{description}</p>
+        <p className="text-sm text-gray-700 font-semibold mb-4">
+          ⏰ {timing}
+        </p>
+
+        <button onClick={()=>router.push(`/patient/booking/appointment/${id}`)} className="mt-2 cursor-pointer w-full text-teal-500 bg-white py-2 border-2 hover:text-white hover:bg-teal-500 border-teal-500 rounded-full text-sm font-semibold">
+          View & book
+        </button>
+      </div>
+      
     </div>
   );
 }

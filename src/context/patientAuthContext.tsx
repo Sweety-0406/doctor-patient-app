@@ -1,13 +1,7 @@
 "use client";
+import { Patient } from "@/app/types";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 
-type Patient = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-  location: string;
-};
 
 type PatientAuthContextType = {
   patient: Patient | null;

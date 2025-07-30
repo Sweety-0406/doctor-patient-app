@@ -40,11 +40,11 @@ export default function PatientSignupPage() {
   };
 
   return (
-    <div className="flex bg-teal-100 py-[5%] lg:py-10 px-20 h-screen">
+    <div className="flex bg-teal-500 py-[5%] lg:py-10 xl:px-[20%] px-20 h-screen">
       {/* Left Illustration */}
       <div className="w-full  bg-gray-50 rounded-l-lg md:w-1/2 hidden md:flex items-center justify-center p-10">
         <Image
-          src="/images/doctor.png" // Place this image in /public
+          src="/images/doctor.png" 
           alt="Signup Illustration"
           width={500}
           height={500}
@@ -55,7 +55,7 @@ export default function PatientSignupPage() {
       {/* Right Signup Form */}
       <div className="w-full md:pr-10 md:w-1/2 rounded-r-lg md:bg-gray-50 flex items-center justify-center">
         <div className="w-full max-w-md bg-white p-10 rounded shadow">
-          <h2 className="text-2xl  lg:text-4xl font-bold mb-6 text-center flex justify-center"><span className="font-bold mt-[6px] mr-1 text-teal-500"><LuStethoscope /></span> Signup</h2>
+          <h2 className="text-2xl  lg:text-4xl font-bold mb-6 text-center flex justify-center"><span onClick={()=>router.push("/")} className="font-bold mt-[6px] mr-1 text-teal-500"><LuStethoscope /></span> Signup</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Name */}
             <div>
@@ -123,7 +123,7 @@ export default function PatientSignupPage() {
           <div>
             <p className="text-center text-sm text-gray-500 mt-6">
                 Already have an account ? 
-                <a href="/doctor/login" className="text-teal-500 font-medium">
+                <a href="/patient/login" className="text-teal-500 font-medium">
                   Login
                 </a>
             </p>

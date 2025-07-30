@@ -4,7 +4,6 @@ import { getDoctorById } from "@/lib/api";
 import { useEffect, useState } from "react";
 import { IoIosArrowDropright } from "react-icons/io";
 import { FaArrowLeft, FaCalendarAlt } from "react-icons/fa";
-import toast from "react-hot-toast";
 import { Doctor } from "@/app/types";
 
 export default function BookingPage() {
@@ -25,85 +24,98 @@ export default function BookingPage() {
   if (!doc) return <div>Loading...</div>;
 
   return (
-    <div className="relative">
-      <div className="bg-teal-500 w-full absolute h-40 rounded-b-4xl"/>
-      <div className="absolute  p-4 w-full">
-        <div className="mt-4">
-          <h2 className="text-2xl text-white flex gap-4 font-semibold mb-10"><span className="cursor-pointer mt-1" onClick={()=>{router.back()}}><FaArrowLeft /></span>Book Appointment</h2>
+    <div className="relative min-h-screen">
+      {/* Header Background */}
+      <div className="bg-teal-500 w-full absolute h-40 rounded-b-4xl z-0" />
+
+      <div className="absolute w-full p-4 z-10">
+        <div className="flex items-center text-white text-2xl font-semibold mb-8">
+          <FaArrowLeft onClick={() => router.back()} className="mr-3 cursor-pointer" />
+          Book Appointment
         </div>
-        <div className="flex justify-center w-full">
-          <div className="grid grid-cols-3  rounded-2xl mx-[10%] sm:px-8 bg-white shadow p-2">
-            <div className="col-span-2 sm:pr-4">
-              <h1 className="sm:text-xl font-semibold mb-1">{doc.name}</h1>
-              <p className="text-gray-500 text-xs mb-1 sm:text-base">{doc.specialization}</p>
-              <p className="text-teal-500 text-xs mb-1 sm:text-base">{doc.qualification}</p>
-              <p className="text-gray-500 text-xs mb-1 sm:text-base">Fellow of Sankara Natrayala, Chennai</p>
-            </div>
-            <div className="col-span-1">
-              <img 
-                src={doc.image}
-                alt={doc.name}
-                className="object-cover aspect-square rounded-2xl w-[100px] h-[100px] sm:w-[120px] sm:h-[120px]"
-              />
+
+        <div className="flex flex-col  gap-6 mx-auto max-w-6xl">
+          
+          {/* Doctor Card */}
+          <div className="bg-white mx-[5%] lg:mx-[10%] shadow rounded-2xl p-4 flex  gap-4 items-center">
+            <img
+              src={doc.image}
+              alt={doc.name}
+              className="rounded-xl w-[100px] h-[100px] md:w-[120px] md:h-[120px] object-cover"
+            />
+            <div className="space-y-1">
+              <h2 className="text-lg font-semibold">{doc.name}</h2>
+              <p className="text-gray-500 text-sm">{doc.specialization}</p>
+              <p className="text-teal-500 text-sm">{doc.qualification}</p>
+              <p className="text-gray-400 text-xs">Fellow of Sankara Natrayala, Chennai</p>
+
+              {/* Phone Number */}
+              <p className="text-sm text-gray-600">📞 {doc.phone || "Not Available"}</p>
+
+              {/* Rating */}
+              {doc.rating && (
+                <div className="flex items-center gap-1 text-yellow-500 text-sm">
+                  {"⭐".repeat(Math.floor(doc.rating))}<span className="text-gray-600 ml-1">({doc.rating}/5)</span>
+                </div>
+              )}
             </div>
           </div>
-          <div></div>
-        </div>
-        <div className="p-4 w-full max-w-md mx-auto space-y-4">
-          {/* Speciality */}
-          <div>
-            <h3 className="font-semibold text-base mb-2">Speciality</h3>
-            <div className="flex flex-wrap gap-2">
-              {doc.specialties.map((speciality:string) => (
-                <span
-                  key={speciality}
-                  className="px-3 py-1 text-sm border border-teal-500 font-semibold rounded-full"
-                >
-                  {speciality}
-                </span>
+
+          {/* Details Panel */}
+          <div className="bg-white shadow rounded-2xl p-6 mx-[5%] lg:mx-w[10%] space-y-4">
+            <div>
+              <h3 className="font-semibold text-base mb-2">Speciality</h3>
+              <div className="flex flex-wrap gap-2">
+                {doc.specialties.map((speciality: string) => (
+                  <span
+                    key={speciality}
+                    className="px-3 py-1 text-sm border border-teal-500 font-semibold rounded-full"
+                  >
+                    {speciality}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* About Doctor */}
+            <div>
+              <h3 className="font-semibold text-base mb-1">About Doctor</h3>
+              <p className="text-gray-600 text-sm">{doc.description}</p>
+            </div>
+
+            {/* Availability */}
+            <div>
+              <h3 className="font-semibold text-base mb-1">Availability For Consulting</h3>
+              {doc.available.map((data: string, idx: number) => (
+                <p key={idx} className="text-gray-600 text-sm">
+                  {data}
+                </p>
               ))}
             </div>
-          </div>
 
-          {/* About Doctor */}
-          <div>
-            <h3 className="font-semibold text-base mb-1">About Doctor</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              {doc.description}
-            </p>
-          </div>
-
-          {/* Availability */}
-          <div>
-            <h3 className="font-semibold text-base mb-1">Availability For Consulting</h3>
-            {doc.available.map((data:string, index:number)=>(
-              <p key={index} className="text-gray-600 text-sm">
-                {data}
-              </p>
-            ))}
-          </div>
-
-          {/* Appointment Card */}
-          <div className="flex mt-10 w-full items-center justify-between p-4 bg-gray-100 rounded-xl   shadow-sm">
-            <div className="flex items-center w-full space-x-3">
-              <FaCalendarAlt className="text-gray-500 text-lg" />
-              <div className="bg-white p-2  rounded-lg flex w-full justify-between">
+            {/* Appointment Info */}
+            <div className="flex items-center gap-3 p-3 bg-gray-100 rounded-xl">
+              <FaCalendarAlt className="text-gray-500 text-xl" />
+              <div className="flex justify-between w-full bg-white p-2 rounded-md items-center">
                 <div>
                   <p className="text-xs text-teal-500">Earliest Available Appointment</p>
                   <p className="text-sm font-medium">10 Oct, 2023 | 11:30 AM</p>
                 </div>
-                <div className="text-xl text-gray-400 mt-2"><IoIosArrowDropright /></div>
+                <IoIosArrowDropright className="text-gray-400 text-xl" />
               </div>
             </div>
-          </div>
-          <div>
-            <button onClick={()=>router.push(`/patient/booking/appointment/${id}`)} className="w-full bg-teal-500 py-3 rounded-lg text-white font-semibold cursor-pointer">
+
+            {/* Book Button */}
+            <button
+              onClick={() => router.push(`/patient/booking/appointment/${id}`)}
+              className="w-full cursor-pointer bg-teal-500 py-3 rounded-lg text-white font-semibold"
+            >
               Book Appointment
             </button>
           </div>
         </div>
       </div>
-
     </div>
+
   );
 }
