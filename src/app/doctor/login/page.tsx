@@ -98,12 +98,17 @@ export default function DoctorLoginPage() {
             </button>
           </form>
           <div>
-            <p className="text-center pt-10 text-sm text-gray-500 mt-6">
+            <p className="text-center  text-sm text-gray-500 mt-6">
                 Don&apos;t have an account ?
                 <a href="/doctor/signup" className="text-teal-500 font-medium">
                 Sign Up
                 </a>
             </p>
+          </div>
+          <div  className="bg-gray-100 text-sm p-1 rounded-md text-gray-500 mt-4">
+            Demo credentials
+            <p>email: arti@gmail.com</p>
+            <p>password: 123456</p>
           </div>
         </div>
       </div>
