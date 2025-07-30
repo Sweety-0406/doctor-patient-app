@@ -36,7 +36,7 @@ export default function PatientProfilePage() {
 
   useEffect(() => {
     if (!loading && !patient) {
-      router.push("/login");
+      router.push("/patient/login");
     }
   }, [loading, patient]);
 
@@ -59,7 +59,10 @@ export default function PatientProfilePage() {
     setOpen(false);
   };
 
-
+ const logoutHandler = ()=>{
+    logout()
+    router.push('/')
+ }
 
   return (
     <div className="max-h-screen px-auto lg:px-[10%] min-h-screen    bg-gray-100">
@@ -81,47 +84,49 @@ export default function PatientProfilePage() {
                 </div>
                 <h2 className="text-xl font-bold">{patient.name}</h2>
                 <p className="text-gray-400 text-sm">{patient.email}</p>
+                <div className="flex gap-5">
+                    <Dialog open={open} onOpenChange={setOpen}>
+                    <DialogTrigger asChild>
+                        <Button className="mt-4" variant="teal">Edit Profile</Button>
+                    </DialogTrigger>
 
-                <Dialog open={open} onOpenChange={setOpen}>
-                <DialogTrigger asChild>
-                    <Button className="mt-4" variant="teal">Edit Profile</Button>
-                </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader className="border-b-2 border-teal-500 pb-2">
+                        <DialogTitle>Edit Patient Profile</DialogTitle>
+                        </DialogHeader>
 
-                <DialogContent>
-                    <DialogHeader className="border-b-2 border-teal-500 pb-2">
-                    <DialogTitle>Edit Patient Profile</DialogTitle>
-                    </DialogHeader>
-
-                    <div className="grid grid-cols-2 gap-4 py-4">
-                        <InputField label="Name" name="name" value={formData.name} onChange={handleChange} />
-                        <InputField label="Email" name="email" value={formData.email} onChange={handleChange} type="email" />
-                        <InputField label="Age" name="age" value={formData.age} onChange={handleChange} type="number" />
-                        <InputField label="Phone" name="phone" value={formData.phone} onChange={handleChange} />
-                        <InputField label="Location" name="location" value={formData.location} onChange={handleChange} />
-                        <InputField label="Blood Group" name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} />
-                        <div>
-                            <label className="font-semibold" htmlFor="gender">Gender</label>
-                            <select
-                            name="gender"
-                            id="gender"
-                            value={formData.gender}
-                            onChange={handleChange}
-                            className="input w-full border rounded px-3 py-2"
-                            required
-                            >
-                            <option value="">Select</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                            </select>
+                        <div className="grid grid-cols-2 gap-4 py-4">
+                            <InputField label="Name" name="name" value={formData.name} onChange={handleChange} />
+                            <InputField label="Email" name="email" value={formData.email} onChange={handleChange} type="email" />
+                            <InputField label="Age" name="age" value={formData.age} onChange={handleChange} type="number" />
+                            <InputField label="Phone" name="phone" value={formData.phone} onChange={handleChange} />
+                            <InputField label="Location" name="location" value={formData.location} onChange={handleChange} />
+                            <InputField label="Blood Group" name="bloodGroup" value={formData.bloodGroup} onChange={handleChange} />
+                            <div>
+                                <label className="font-semibold" htmlFor="gender">Gender</label>
+                                <select
+                                name="gender"
+                                id="gender"
+                                value={formData.gender}
+                                onChange={handleChange}
+                                className="input w-full border rounded px-3 py-2"
+                                required
+                                >
+                                <option value="">Select</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <DialogFooter>
-                    <Button variant="teal" className="w-full" onClick={handleSave}>Save</Button>
-                    </DialogFooter>
-                </DialogContent>
-                </Dialog>
+                        <DialogFooter>
+                        <Button variant="teal" className="w-full" onClick={handleSave}>Save</Button>
+                        </DialogFooter>
+                    </DialogContent>
+                    </Dialog>
+                    <Button onClick={logoutHandler} className="mt-4 px-8" variant="teal">Logout</Button>
+                </div>
             </div>
 
             {/* Details Section */}

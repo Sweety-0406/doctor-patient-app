@@ -60,7 +60,7 @@ export default function PatientLoginPage() {
       {/* Right Login Form */}
       <div className="w-full md:pr-10 rounded-r-lg md:w-1/2 md:bg-gray-50 flex items-center justify-center">
         <div className="w-full max-w-md bg-white p-10 rounded shadow">
-          <h2 className="text-2xl lg:text-4xl font-bold mb-6 text-center flex justify-center"><span className="font-bold mt-[6px] mr-1 text-teal-500"><LuStethoscope /></span> Login</h2>
+          <h2 className="text-2xl lg:text-4xl font-bold mb-6 text-center flex justify-center"><span onClick={()=>router.push("/")} className="font-bold cursor-pointer mt-[6px] mr-1 text-teal-500"><LuStethoscope /></span> Login</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div>
                 <label className="text-teal-500 font-semibold text-lg" htmlFor="email">Email</label>
@@ -92,7 +92,7 @@ export default function PatientLoginPage() {
 
             <button
               type="submit"
-              className="w-full bg-teal-400 hover:bg-teal-500 text-white py-2 rounded transition"
+              className="w-full cursor-pointer bg-teal-400 hover:bg-teal-500 text-white py-2 rounded transition"
             >
               Login
             </button>

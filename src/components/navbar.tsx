@@ -23,7 +23,7 @@ const Navbar = ()=>{
                 </nav>
             </div>
 
-            <button onClick={logoutHandler} className=" bg-teal-500 hover:bg-teal-600 text-gray-700 py-1 px-2 text-center rounded">
+            <button onClick={logoutHandler} className=" bg-teal-500 cursor-pointer  hover:bg-teal-600 text-gray-700 py-1 px-2 text-center rounded">
                 Logout
             </button>
         </nav>

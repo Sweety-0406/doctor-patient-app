@@ -55,7 +55,7 @@ export default function PatientSignupPage() {
       {/* Right Signup Form */}
       <div className="w-full md:pr-10 md:w-1/2 rounded-r-lg md:bg-gray-50 flex items-center justify-center">
         <div className="w-full max-w-md bg-white p-10 rounded shadow">
-          <h2 className="text-2xl  lg:text-4xl font-bold mb-6 text-center flex justify-center"><span onClick={()=>router.push("/")} className="font-bold mt-[6px] mr-1 text-teal-500"><LuStethoscope /></span> Signup</h2>
+          <h2 className="text-2xl  lg:text-4xl font-bold mb-6 text-center flex justify-center"><span onClick={()=>router.push("/")} className="font-bold mt-[6px] cursor-pointer mr-1 text-teal-500"><LuStethoscope /></span> Signup</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             {/* Name */}
             <div>

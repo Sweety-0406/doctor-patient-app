@@ -24,7 +24,7 @@ const SideBar = ()=>{
             </div>
 
             <div className="mt-10">
-            <button onClick={logoutHandler} className="w-full bg-teal-500 hover:bg-teal-600 text-gray-700 py-2 rounded">
+            <button onClick={logoutHandler} className="w-full cursor-pointer bg-teal-500 hover:bg-teal-600 text-gray-700 py-2 rounded">
                 Logout
             </button>
             </div>

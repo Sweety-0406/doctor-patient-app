@@ -212,13 +212,13 @@ export default function BookingAppointmentPage() {
                         <button
                         type="button"
                         onClick={() => setFormData({ ...formData, payment: "Not paid" })}
-                        className="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+                        className="bg-gray-300 cursor-pointer text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
                         >
                         Pay Later
                         </button>
                     </div>
                 </div>
-                <button type="submit" className="col-span-1 md:col-span-2 lg:col-span-3 w-full cursor-pointer bg-teal-500 hover:bg-teal-600 text-white py-2 rounded">
+                <button type="submit" className="cursor-pointer col-span-1 md:col-span-2 lg:col-span-3 w-full cursor-pointer bg-teal-500 hover:bg-teal-600 text-white py-2 rounded">
                     Book Appointment
                 </button>
             </form>
