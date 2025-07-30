@@ -82,7 +82,7 @@ export default function DoctorDashboard() {
             <h3 className="text-lg font-semibold mb-4">Patient Visit</h3>
             <div className="h-48 flex items-center justify-center text-gray-400">
                 <Image 
-                    src="/images/graph.png" 
+                    src="/images/fake-graph.png" 
                     alt="Patient Chart"
                     width={400}
                     height={200}
