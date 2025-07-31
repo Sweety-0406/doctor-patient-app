@@ -8,7 +8,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Appointment } from '@/app/types';
 import { EventContentArg } from '@fullcalendar/core';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
-
+import { EventApi } from '@fullcalendar/core';
+import { EventClickArg } from '@fullcalendar/core';
 
 export type EventDataType = {
   title: string;
@@ -33,7 +34,7 @@ interface MyCalendarProps {
 const MyCalendar = ({scheduleData}:MyCalendarProps)=>{
     const [events, setEvents] = useState<EventDataType[]>([]);
     const calendarRef = useRef<FullCalendar | null>(null);
-    const [selectedEvent, setSelectedEvent] = useState<any>(null);
+    const [selectedEvent, setSelectedEvent] = useState<EventApi | null>(null);
     const [isDialogOpen, setIsDialogOpen] = useState(false);
 
     useEffect(()=>{
@@ -55,12 +56,10 @@ const MyCalendar = ({scheduleData}:MyCalendarProps)=>{
         setEvents(eventData);
     },[scheduleData])
 
-    const handleEventClick = (clickInfo: any) => {
+    const handleEventClick = (clickInfo: EventClickArg) => {
         setSelectedEvent(clickInfo.event);
         setIsDialogOpen(true);
     };
-
-
 
     const handleWindowResize = () => {
         const calendarApi: CalendarApi | undefined = calendarRef.current?.getApi();
@@ -118,7 +117,7 @@ const MyCalendar = ({scheduleData}:MyCalendarProps)=>{
                         <p>{selectedEvent.title}</p>
 
                         <p className="font-semibold">Date of Appointment:</p>
-                        <p>{new Date(selectedEvent.start).toLocaleString()}</p>
+                        <p>{selectedEvent.start?.toLocaleString() || "No Date"}</p>
 
                         <p className="font-semibold">Status:</p>
                         <p>
