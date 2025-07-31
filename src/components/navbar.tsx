@@ -8,8 +8,8 @@ const Navbar = ()=>{
     const router = useRouter();
 
     const logoutHandler = () => {
-        logout();
         router.push("/");
+        logout();
     };
     return(
         <nav className="w-full z-10 absolute  h-20 flex justify-between bg-white shadow-md p-6 flex  justify-between">

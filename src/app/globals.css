@@ -24,6 +24,52 @@
   @apply w-full border border-teal-500 rounded px-3 py-2 text-sm  focus:outline-none  focus:ring-1 focus:ring-teal-500;
 }
 
+
+/* Full width on mobile */
+.fc {
+  width: 100%;
+}
+
+/* Reduce font size for mobile */
+@media (max-width: 768px) {
+  .fc-toolbar-title {
+    font-size: 1rem;
+  }
+  .fc-button {
+    padding: 4px 8px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
+.fc-scroller {
+  overflow-x: auto !important;
+}
+
+.fc .fc-button {
+  background-color: #14B8A6 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 6px 12px !important;
+  margin: 2px;
+  font-size: 14px !important;
+}
+
+.fc .fc-button:hover {
+  background-color: #0d9488 !important; 
+}
+
+.fc .fc-button:disabled {
+  background-color: #9ca3af !important; 
+}
+
+.fc .fc-button-active {
+  background-color: #0d9488 !important; 
+  color: white !important;
+}
+
+
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

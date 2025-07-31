@@ -14,8 +14,12 @@ import toast from "react-hot-toast";
 export default function AppointmentsPage() {
     const [activeTab, setActiveTab] = useState<"pending" | "approved" | "rejected" | "completed" | "cancelled">("approved");
     const[appointments, setAppointments] = useState<Appointment[]>([])
+    const [open, setOpen] = useState(false);
     const { patient, loading } = usePatientAuth();
     const router = useRouter()
+    const[title, setTitle] = useState("")
+    const[description, setDescription] = useState("")
+    const[imageSrc, setImageSrc] = useState("")
 
 
     useEffect(() => { 
@@ -32,7 +36,6 @@ export default function AppointmentsPage() {
         if(!patient) return null;
         const res = await getPatientAppointments(patient.id);
         const data = await res.json();
-        console.log("data",data)
         setAppointments(data);
     
     };
@@ -41,7 +44,8 @@ export default function AppointmentsPage() {
     const handleCancel = async (appointmentId: string) => {
         const res = await cancellAppointment(appointmentId, "cancelled");
         if (res.ok) {
-            toast.success("Appointment cancelled successfully.");
+            toast.success("Appointment Cancelled Successfully")
+
             setAppointments((prev) =>
             prev.map((a) =>
                 a.id === appointmentId ? { ...a, status: "cancelled" } : a

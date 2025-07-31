@@ -8,11 +8,11 @@ const SideBar = ()=>{
     const router = useRouter();
 
     const logoutHandler = () => {
-        logout();
         router.push("/");
+        logout();
     };
     return(
-        <aside className="w-full h-screen bg-white shadow-md p-6 flex flex-col justify-between">
+        <aside className="w-full border-r-2 border-teal-500 h-screen bg-white shadow-md p-6 flex flex-col justify-between">
             <div>
             <Link href="/" className="text-2xl font-bold text-teal-600 ">Doc-Center</Link>
             <nav className="flex flex-col gap-4 mt-8">

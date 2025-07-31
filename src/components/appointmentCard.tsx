@@ -1,9 +1,7 @@
 "use client"
 
 import { Appointment } from "@/app/types";
-import { cancellAppointment } from "@/lib/api";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
 
 
 export default function AppointmentCard({ 
@@ -29,14 +27,11 @@ export default function AppointmentCard({
           <p className="text-xs text-gray-500">Payment | <span className={`${data.payment === "Paid"? "text-green-500" : "text-red-500"}`}>{data.payment}</span></p>
           <p className={`text-xs font-semibold  mt-1  ${data.status === "approved" && "text-green-600"} ${data.status === "pending" && "text-yellow-400"} ${data.status === "rejected" && "text-red-600"} ${data.status === "completed" && "text-blue-600"} `}>Consulting | {data.status.toUpperCase()}</p>
         </div>
-        <div className="text-gray-400 rounded-full bg-sky-100 p-1 flex text-center">
-          🏢
-        </div>
       </div>
       {(!isCompleted ) && (
         <button
           onClick={async ()=>{
-            if(isRejected){
+            if(isRejected || isCancelled){
               router.push(`/patient/booking/appointment/${data.doctorId}`)
             }else{
               if(onCancel){
